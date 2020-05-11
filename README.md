@@ -79,6 +79,10 @@ This way, you can map the distribution and test types you need, and use it to ma
 | test_rules / test_description_regex | Test rules will have the filters to identify a test case. The test_description_regex will have the regex to extract your description from a line. | yes (if it has no extends) |
 | test_rules / test_description_strategy |  This attribute should have the strategy to get the test description based on test notation. If the description is  on the same line of the test notation, you will use SAME_LINE value. If it is on the next line, you should use NEXT_LINE value. | yes (if it has no extends) |
 | test_rules / test_notation |  This attribute will inform if the regular expression to identify a new test in the file.| yes (if it has no extends) |
+| test_rules / test_exclusion_regex| This attribute will inform the regular expression to identify a test that should not be considered | only if it has test_exclusion_regex |
+| test_rules / test_exclusion_strategy| This attribute should have the strategy to exclude the test based on test description. If the test_description is on the same line of the test_exclusion_regex, you will use SAME_LINE value. If it is on the next line, you should use NEXT_LINE value. | only if it has test_exclusion_strategy |
+| spreadsheet_columns| This attribute is used to configure additional columns with fixed values. If you have any extra column with a fixed value, you should put it inside spreadsheet_columns. The key will be the column name and the value will be the fixed value. It is considered, also on extends, what means that all spreadsheet_columns configured on a parent will be extended on a child. It merges the fields, if you have an override or some exclusive column for child. | no |
+
 
 
 **Example 1: Simple configuration**
